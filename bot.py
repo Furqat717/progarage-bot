@@ -179,7 +179,7 @@ def main():
 
     app = Application.builder().token(BOT_TOKEN).build()
     app.add_handler(CommandHandler("start", start))
-    app.add_handler(CommandHandler("bind", bind_cmd))
+    app.add_handler(CommandHandler("bind", bind_handler))
     app.add_handler(MessageHandler(filters.VIDEO | filters.Document.VIDEO, save_last_video))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_code_text))
     app.add_handler(CallbackQueryHandler(on_check, pattern="^check_sub$"))
